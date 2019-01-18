@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const http = require('http');
 const express = require('express');
 const views = require('./routes/views');
@@ -21,8 +23,12 @@ app.use(function (err, req, res, next) {
     })
 });
 
-const port = 3000;
+const port = (process.env.PORT || 3000);
+//const port = 3000;
 server = http.Server(app);
 server.listen(port, function () {
     console.log('server listening on port ' + port);
 });
+
+
+
